@@ -1,0 +1,61 @@
+# Project: EX32
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Arguments.o Util.o Option.o Input.o EUCallOpt.o EUPutOpt.o PricingEng.o P32.o PGBM.o McPricingEng.o app.o Process.o
+LINKOBJ  = Arguments.o Util.o Option.o Input.o EUCallOpt.o EUPutOpt.o PricingEng.o P32.o PGBM.o McPricingEng.o app.o Process.o
+LIBS     = -L"D:/软件下载/Dev-Cpp/MinGW64/lib" -L"D:/软件下载/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/软件下载/Dev-Cpp/MinGW64/include" -I"D:/软件下载/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/软件下载/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/软件下载/Dev-Cpp/MinGW64/include" -I"D:/软件下载/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/软件下载/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/软件下载/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = EX32.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Arguments.o: Arguments.cpp
+	$(CPP) -c Arguments.cpp -o Arguments.o $(CXXFLAGS)
+
+Util.o: Util.cpp
+	$(CPP) -c Util.cpp -o Util.o $(CXXFLAGS)
+
+Option.o: Option.cpp
+	$(CPP) -c Option.cpp -o Option.o $(CXXFLAGS)
+
+Input.o: Input.cpp
+	$(CPP) -c Input.cpp -o Input.o $(CXXFLAGS)
+
+EUCallOpt.o: EUCallOpt.cpp
+	$(CPP) -c EUCallOpt.cpp -o EUCallOpt.o $(CXXFLAGS)
+
+EUPutOpt.o: EUPutOpt.cpp
+	$(CPP) -c EUPutOpt.cpp -o EUPutOpt.o $(CXXFLAGS)
+
+PricingEng.o: PricingEng.cpp
+	$(CPP) -c PricingEng.cpp -o PricingEng.o $(CXXFLAGS)
+
+P32.o: P32.cpp
+	$(CPP) -c P32.cpp -o P32.o $(CXXFLAGS)
+
+PGBM.o: PGBM.cpp
+	$(CPP) -c PGBM.cpp -o PGBM.o $(CXXFLAGS)
+
+McPricingEng.o: McPricingEng.cpp
+	$(CPP) -c McPricingEng.cpp -o McPricingEng.o $(CXXFLAGS)
+
+app.o: app.cpp
+	$(CPP) -c app.cpp -o app.o $(CXXFLAGS)
+
+Process.o: Process.cpp
+	$(CPP) -c Process.cpp -o Process.o $(CXXFLAGS)
